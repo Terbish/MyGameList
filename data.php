@@ -1,6 +1,6 @@
 <?php
 // Connect to the database
-$servername = "css1.seattleu.edu";
+$servername = "cssql.seattleu.edu";
 $username = "bd_jshenli";
 $password = "3300jshenli-Yrws";
 $dbname = "bd_jshenli3";
