@@ -1,76 +1,82 @@
 <?php
-// Create a database connection
-$conn = mysqli_connect("cssql.seattleu.edu", "bd_jshenli", "3300jshenli-Yrws", "bd_jshenli3");
 
-// Define queries
-$query1 = "SELECT User.USERNAME, Game.GAME_NAME, Review.REVIEW_SCORE
-        FROM User
-        INNER JOIN Review
-        ON User.USER_ID = Review.USER_ID
-        INNER JOIN Game
-        ON Review.GAME_ID = Game.GAME_ID
-        WHERE Game.GAME_LANGUAGE = 'ENG'";
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
-$query2 = "SELECT g.GAME_NAME, AVG(r.REVIEW_SCORE) AS AVG_REVIEW_SCORE
-FROM Game g
-INNER JOIN Review r ON g.GAME_ID = r.GAME_ID
-GROUP BY g.GAME_NAME
-HAVING AVG_REVIEW_SCORE IS NOT NULL
-ORDER BY AVG_REVIEW_SCORE DESC";
+// Connect to the database using PDO
+$servername = "cssql.seattleu.edu";
+$username = "bd_jshenli";
+$password = "3300jshenli-Yrws";
+$dbname = "bd_jshenli3";
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-$query3 = "SELECT GAME_NAME, RELEASE_DATE, PRICE
-FROM Game
-WHERE RELEASE_DATE > '2010-01-01' AND PRICE > (
-    SELECT AVG(PRICE)
-    FROM Game
-    WHERE RELEASE_DATE > '2010-01-01'
-)
-ORDER BY RELEASE_DATE";
+if (!$conn) {
+  die("Connection failed: " . mysqli_connect_error());
+}
 
-$query4 = "SELECT s.STUDIO_NAME, AVG(g.AVG_REVIEW_SCORE) AS AVG_REVIEW
-FROM Studio s
-JOIN Game g ON s.STUDIO_ID = g.STUDIO_ID
-GROUP BY s.STUDIO_NAME
-HAVING COUNT(g.GAME_ID) >= 1 AND AVG(g.AVG_REVIEW_SCORE) > 6.0";
-$query5 = "SELECT Game.GAME_NAME, Studio.STUDIO_NAME, Studio.`STUDIO_ID`
-FROM Game
-LEFT OUTER JOIN Studio ON Game.STUDIO_ID = Studio.STUDIO_ID
-ORDER BY `STUDIO_ID`";
+// Get the name attribute from the clicked link
+$query = $_GET['query'];
+$result = mysqli_query($conn, $query);
 
-// Execute queries and get results
-$result1 = mysqli_query($conn, $query1);
-$result2 = mysqli_query($conn, $query2);
-$result3 = mysqli_query($conn, $query3);
-$result4 = mysqli_query($conn, $query4);
-$result5 = mysqli_query($conn, $query5);
+// Determine which query to execute based on the value of the name attribute
+switch ($query) {
+    case 'query1':
+        $query = "SELECT User.USERNAME, Game.GAME_NAME, Review.REVIEW_SCORE FROM User 
+                  JOIN Review ON User.USER_ID = Review.USER_ID 
+                  JOIN Game ON Review.GAME_ID = Game.GAME_ID 
+                  WHERE Game.GAME_LANGUAGE = 'ENG'";
+        break;
+    case 'query2':
+        $query = "SELECT Game.GAME_NAME, AVG(Review.REVIEW_SCORE) AS AVG_SCORE FROM Game 
+                  JOIN Review ON Game.GAME_ID = Review.GAME_ID 
+                  GROUP BY Game.GAME_ID 
+                  ORDER BY AVG_SCORE DESC";
+        break;
+    case 'query3':
+        $query = "SELECT GAME_NAME, RELEASE_DATE, PRICE FROM Game
+                  WHERE RELEASE_DATE > '2010-01-01' AND PRICE > (
+                  SELECT AVG(PRICE) FROM Game
+                  WHERE RELEASE_DATE > '2010-01-01')
+                  ORDER BY RELEASE_DATE";
+        break;
+    case 'query4':
+        $query = "SELECT s.STUDIO_NAME, AVG(g.AVG_REVIEW_SCORE) AS AVG_REVIEW FROM Studio s
+                  JOIN Game g ON s.STUDIO_ID = g.STUDIO_ID
+                  GROUP BY s.STUDIO_NAME
+                  HAVING COUNT(g.GAME_ID) >= 1 AND AVG(g.AVG_REVIEW_SCORE) > 6.0";
+        break;
+    case 'query5':
+        $query = "SELECT Game.GAME_NAME, Studio.STUDIO_NAME FROM Game 
+                  JOIN Studio ON Game.STUDIO_ID = Studio.STUDIO_ID";
+        break;
+    default:
+        // If the query name is not recognized, display an error message
+        echo "Error: Invalid query name.";
+        exit;
+}
 
-// Loop through each result and display the data
-if (mysqli_num_rows($result1) > 0) {
-    echo "<table><tr><th>Username</th><th>Game Name</th><th>Review Score</th></tr>";
-    while($row = mysqli_fetch_assoc($result1)) {
-      echo "<tr><td>" . $row["USERNAME"] . "</td><td>" . $row["GAME_NAME"] . "</td><td>" . $row["REVIEW_SCORE"] . "</td></tr>";
+//Fetch the result and display it as a table
+echo "<table style='border-collapse: collapse; border: 1px solid black;'>";
+// Display the table header
+if ($result) {
+    $row = mysqli_fetch_assoc($result);
+    echo "<tr>";
+    foreach ($row as $key => $value) {
+        echo "<th style='border: 1px solid black; padding: 5px; text-align: center;'>$key</th>";
     }
-    echo "</table>";
-  } else {
-    echo "0 results";
-  };
-
-while ($row = mysqli_fetch_assoc($result2)) {
-  // Display data from result2
+    echo "</tr>";
+    // Display the rows
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo "<tr>";
+        foreach ($row as $value) {
+            echo "<td style='border: 1px solid black; padding: 5px; text-align: center;'>$value</td>";
+        }
+        echo "</tr>";
+    }
+} else {
+    echo "<tr><td>No results found.</td></tr>";
 }
+echo "</table>";
 
-while ($row = mysqli_fetch_assoc($result3)) {
-  // Display data from result3
-}
-
-while ($row = mysqli_fetch_assoc($result4)) {
-  // Display data from result4
-}
-
-while ($row = mysqli_fetch_assoc($result5)) {
-  // Display data from result5
-}
-
-// Close the database connection
 mysqli_close($conn);
 ?>

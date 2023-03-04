@@ -199,11 +199,11 @@ a link on the query name should execute the appropriate SQL query and
 list the tuples that are the answer to that particular query. Again,
 make sure your output is neatly ordered and columns are evident.<br><br>
 <ol>
-<li><a href="query.php" name="query1">Query1</a>: List the users who reviewed an English game, the game name and the review scores they gave.
-</li><li><a href="query.php" name = "query2">Query2</a>: List the names of each game that has a review and their average review scores ordered by score from highest to lowest.
-</li><li><a href="query.php" name = "query3">Query3</a>: List the names, release dates, and prices of games that are more expensive than the average price of games released after 2010.
-</li><li><a href="query.php" name = "query4">Query4</a>: Find the studios that have released at least one game and their average review score is above a certain threshold.
-</li><li><a href="query.php" name = "query5">Query5</a>: List all the games with their respective studio names.
+<li><a href="query.php?query=query1" name="query1">Query1</a>: List the users who reviewed an English game, the game name and the review scores they gave.
+</li><li><a href="query.php?query=query2" name = "query2">Query2</a>: List the names of each game that has a review and their average review scores ordered by score from highest to lowest.
+</li><li><a href="query.php?query=query3" name = "query3">Query3</a>: List the names, release dates, and prices of games that are more expensive than the average price of games released after 2010.
+</li><li><a href="query.php?query=query4" name = "query4">Query4</a>: Find the studios that have released at least one game and their average review score is above a certain threshold.
+</li><li><a href="query.php?query=query5" name = "query5">Query5</a>: List all the games with their respective studio names.
 </li></ol>
 <br><br>
 <hr>
@@ -215,25 +215,28 @@ execute that query on the database and bring up the answers, once again, in a ne
 can be any legal SQL query (permissible under your DB system, of course).
 </i><br><br>
 <form method="POST" action="data.php">
-      <table>
-        <tbody><tr>
-          <td align="right">
-            <strong>Please enter your query here<br></strong>
-          </td>
-          <td>
-            <input size="30" name="query" type="text">
-          </td>
-        </tr>
-        <tr>
-          <td align="right">
-            <input value="Clear" type="reset">
-          </td>
-          <td>
-            <input value="Submit" type="submit">
-          </td>
-        </tr>
-      </tbody></table>
-    </form>
+  <table>
+    <tbody>
+      <tr>
+        <td align="right">
+          <strong>Please enter your query here<br></strong>
+        </td>
+        <td>
+          <textarea name="query" rows="5" cols="50"></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td align="right">
+          <input value="Clear" type="reset">
+        </td>
+        <td>
+          <input value="Submit" type="submit">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</form>
+
 </i></li></ul><i>
 <p></p>
 </i></font><i><i>
