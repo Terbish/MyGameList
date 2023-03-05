@@ -198,11 +198,11 @@ a link on the query name should execute the appropriate SQL query and
 list the tuples that are the answer to that particular query. Again,
 make sure your output is neatly ordered and columns are evident.<br><br>
 <ol>
-<li><a href="q1.php" name="query1">Query1</a>: List the users who reviewed an English game, the game name and the review scores they gave.
-</li><li><a href="q2.php" name = "query2">Query2</a>: List the names of each game that has a review and their average review scores ordered by score from highest to lowest.
-</li><li><a href="q3.php" name = "query3">Query3</a>: List the names, release dates, and prices of games that are more expensive than the average price of games released after 2010.
-</li><li><a href="q4.php" name = "query4">Query4</a>: Find the studios that have released at least one game and their average review score is above a certain threshold.
-</li><li><a href="q5.php" name = "query5">Query5</a>: List all the games with their respective studio names.
+<li><a href="query.php?query=query1" name="query1">Query1</a>: List the users who reviewed an English game, the game name and the review scores they gave.
+</li><li><a href="query.php?query=query2" name = "query2">Query2</a>: List the names of each game that has a review and their average review scores ordered by score from highest to lowest.
+</li><li><a href="query.php?query=query3" name = "query3">Query3</a>: List the names, release dates, and prices of games that are more expensive than the average price of games released after 2010.
+</li><li><a href="query.php?query=query4" name = "query4">Query4</a>: Find the studios that have released at least one game and their average review score is above a certain threshold.
+</li><li><a href="query.php?query=query5" name = "query5">Query5</a>: List all the games with their respective studio names.
 </li></ol>
 <br><br>
 <hr>
@@ -213,7 +213,7 @@ SQL query in the box and click the submit button; The action should be that you 
 execute that query on the database and bring up the answers, once again, in a neat orderly fashion. Notice that the input
 can be any legal SQL query (permissible under your DB system, of course).
 </i><br><br>
-<form method="POST" action="ad.php">
+<form method="POST" action="data.php">
   <table>
     <tbody>
       <tr>

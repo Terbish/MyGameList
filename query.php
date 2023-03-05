@@ -16,7 +16,6 @@ if (!$conn) {
 
 // Get the name attribute from the clicked link
 $query = $_GET['query'];
-$result = mysqli_query($conn, $query);
 
 // Determine which query to execute based on the value of the name attribute
 switch ($query) {
@@ -54,6 +53,8 @@ switch ($query) {
         echo "Error: Invalid query name.";
         exit;
 }
+
+$result = mysqli_query($conn, $query);
 
 //Fetch the result and display it as a table
 echo "<table style='border-collapse: collapse; border: 1px solid black;'>";
