@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login/Register Form</title>
+	<script>
+		function showLoginForm() {
+			document.getElementById("loginForm").style.display = "block";
+			document.getElementById("registerForm").style.display = "none";
+		}
+
+		function showRegisterForm() {
+			document.getElementById("loginForm").style.display = "none";
+			document.getElementById("registerForm").style.display = "block";
+		}
+	</script>
+    <link rel="stylesheet" href = "css/style.css">
+</head>
+<body>
+	<button onclick="showLoginForm()">Login</button>
+	<button onclick="showRegisterForm()">Register</button>
+
+	<form id="loginForm" style="display:block" method="post" action="login.php">
+		<h2>Login</h2>
+		<label for="username">Username:</label>
+		<input type="text" id="username" name="username">
+
+		<label for="password">Password:</label>
+		<input type="password" id="password" name="password">
+
+		<input type="submit" value="Submit">
+	</form>
+
+	<form id="registerForm" style="display:none" method="post" action="register.php">
+		<h2>Register</h2>
+		<label for="username">Username:</label>
+		<input type="text" id="username" name="username">
+
+		<label for="email">Email:</label>
+		<input type="email" id="email" name="email">
+
+		<label for="password">Password:</label>
+		<input type="password" id="password" name="password">
+
+		<label for="confirmPassword">Confirm Password:</label>
+		<input type="password" id="confirmPassword" name="confirmPassword">
+
+		<label for="region">Region:</label>
+		<select id="region" name="region">
+			<option value="US">United States</option>
+			<option value="CA">Canada</option>
+			<option value="UK">United Kingdom</option>
+		</select>
+
+		<input type="submit" value="Submit">
+	</form>
+</body>
+</html>
