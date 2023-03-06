@@ -1,15 +1,15 @@
 -- Active: 1675025700040@@cssql.seattleu.edu@3306@bd_jshenli3
 
 
-DROP TABLE User, Studio, GamePlatform, Game, List, Review, Genre, Platform, UserList, ListGame, GenreInfo, GameGenre;
+DROP TABLE User, Studio, GamePlatform, Game, List, Review, Genre, Platform, UserList, ListGame, GameGenre;
 
 CREATE TABLE User(
     USER_ID         INT         NOT NULL AUTO_INCREMENT,
     USERNAME        VARCHAR(20) NOT NULL,
     USER_EMAIL      VARCHAR(50) NOT NULL,
     USER_PASSWORD   VARCHAR(20) NOT NULL,
-    REGION          CHAR(2)     NOT NULL,
-    VERIFICATION    CHAR(1)     NOT NULL,
+    REGION          CHAR(2),
+    VERIFICATION    CHAR(1)     NOT NULL DEFAULT 'N',
 
     PRIMARY KEY (USER_ID)
 );

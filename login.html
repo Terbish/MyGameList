@@ -1,57 +1,61 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<title>Login/Register Form</title>
-	<script>
-		function showLoginForm() {
-			document.getElementById("loginForm").style.display = "block";
-			document.getElementById("registerForm").style.display = "none";
-		}
-
-		function showRegisterForm() {
-			document.getElementById("loginForm").style.display = "none";
-			document.getElementById("registerForm").style.display = "block";
-		}
-	</script>
-    <link rel="stylesheet" href = "css/style.css">
-</head>
-<body>
-	<button onclick="showLoginForm()">Login</button>
-	<button onclick="showRegisterForm()">Register</button>
-
-	<form id="loginForm" style="display:block" method="post" action="login.php">
-		<h2>Login</h2>
-		<label for="username">Username:</label>
-		<input type="text" id="username" name="username">
-
-		<label for="password">Password:</label>
-		<input type="password" id="password" name="password">
-
-		<input type="submit" value="Submit">
-	</form>
-
-	<form id="registerForm" style="display:none" method="post" action="register.php">
-		<h2>Register</h2>
-		<label for="username">Username:</label>
-		<input type="text" id="username" name="username">
-
-		<label for="email">Email:</label>
-		<input type="email" id="email" name="email">
-
-		<label for="password">Password:</label>
-		<input type="password" id="password" name="password">
-
-		<label for="confirmPassword">Confirm Password:</label>
-		<input type="password" id="confirmPassword" name="confirmPassword">
-
-		<label for="region">Region:</label>
-		<select id="region" name="region">
-			<option value="US">United States</option>
-			<option value="CA">Canada</option>
-			<option value="UK">United Kingdom</option>
-		</select>
-
-		<input type="submit" value="Submit">
-	</form>
-</body>
+<html lang="es" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/style.css"><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="main">
+      <div class="container a-container" id="a-container">
+        <form class="form" id="a-form" method="post" action="signup.php">
+			<h2 class="form_title title">Create Account</h2>
+			<div class="form__group">
+				<input type="text" class="form__input" name="name" id="name" placeholder="Name " required>
+				<label for="name" class="form__label"></label>
+			</div>
+			<div class="form__group">
+				<input type="email" class="form__input" name="email" id="email" placeholder="Email " required>
+				<label for="email" class="form__label"></label>
+			</div>
+			<div class="form__group">
+				<input type="password" class="form__input" name="password" id="password" placeholder="Password " required>
+				<label for="password" class="form__label"></label>
+			</div>
+			<button type="submit" name="signup-submit" class="form__button button">Sign Up</button>
+		</form>
+		
+      </div>
+      <div class="container b-container" id="b-container">
+        <form class="form" id="b-form" method="POST" action="check_login.php">
+			<h2 class="form_title title">Sign in to Website</h2>
+			<div class="form__group">
+				<input type="email" class="form__input" placeholder="Email" name="email" required>
+			</div>
+			<div class="form__group">
+				<input type="password" class="form__input" placeholder="Password" name="password" required>
+			</div>
+			<div class="form__group">
+				<button class="form__button button" type="submit" name="submit">Sign In</button>
+			</div>
+		</form>
+		
+      </div>
+      <div class="switch" id="switch-cnt">
+        <div class="switch__circle"></div>
+        <div class="switch__circle switch__circle--t"></div>
+        <div class="switch__container" id="switch-c1">
+          <h2 class="switch__title title">Welcome Back !</h2>
+          <p class="switch__description description">To keep connected with us please login with your personal info</p>
+          <button class="switch__button button switch-btn">SIGN IN</button>
+        </div>
+        <div class="switch__container is-hidden" id="switch-c2">
+          <h2 class="switch__title title">Hello Friend !</h2>
+          <p class="switch__description description">Enter your personal details and start journey with us</p>
+          <button class="switch__button button switch-btn">SIGN UP</button>
+        </div>
+      </div>
+    </div>
+    <script src="js/script.js"></script>
+  </body>
 </html>
