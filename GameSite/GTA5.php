@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>PlayDB: FFVII Remake</title>
+        <title>PlayDB: GTA V</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="../css/ind_game_styles.css" rel="Stylesheet" type="text/css" />
     </head>
@@ -10,8 +10,8 @@
         <header>
             <div class="flex">
                 <div class="logo">
-                    <a href="http://css1.seattleu.edu/~ssatyabrata/home.html"><img src="../images/logo.png" alt="Main Logo" /></a>
-                    <a href="http://css1.seattleu.edu/~ssatyabrata/home.html"><img src="../images/logo2.png" alt="Alt Logo" /></a>
+                    <a href="../home.html"><img src="../images/logo.png" alt="Main Logo" /></a>
+                    <a href="../home.html"><img src="../images/logo2.png" alt="Alt Logo" /></a>
                 </div>
                 <nav>
                     <button id="nav-toggle" class="hamburger-menu">
@@ -20,12 +20,12 @@
                         <span class="strip"></span>
                     </button>
                     <ul id="nav-menu-container">
-                        <li><a href="http://css1.seattleu.edu/~ssatyabrata/home.html">Home</a></li>
+                        <li><a href="../home.html">Home</a></li>
                         <li><a href="#">Games</a></li>
-                        <li><a href="http://css1.seattleu.edu/~ssatyabrata/main.html">Other</a></li>
+                        <li><a href="../main.html">Other</a></li>
                     </ul>
                 </nav>
-                <a href="http://css1.seattleu.edu/~ssatyabrata/login.html" id="login-register-button">Login / Register</a>
+                <a href="../login.html" id="login-register-button">Login / Register</a>
             </div>
         </header>
 
@@ -33,13 +33,17 @@
             <section id="main-page">
                 <div class="first-page">
                   <div>
-                    <h1><span>God of War</span></h1>
+                    <h1><span>Grand Theft Auto V</span></h1>
                     <h3>
-                        His vengeance against the Gods of Olympus years behind him, Kratos now lives as a man in the realm of Norse Gods and monsters. It is in this harsh, unforgiving world that he must fight to survive… and teach his son to do the same. 
+                        Welcome to Los Santos!
+
+                        When a young street hustler, a retired bank robber, and a terrifying psychopath find themselves entangled with some of the most frightening and deranged elements of the criminal underworld, the U.S. government, and the entertainment industry, they must pull off a series of dangerous heists to survive in a ruthless city in which they can trust nobody — least of all each other.
+
+                        Current players can transfer both GTAV Story Mode progress and GTA Online characters and progression to PlayStation 5 and Xbox Series X|S with a one-time migration.
                     </h3>
                   </div>
         
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/K0u_kAWLJOA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/QkkoHAzjnUs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
           
                 </div>
             </section>

@@ -1,4 +1,11 @@
 <?php
+
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    header('Allow: POST');
+    http_response_code(405);
+    exit;
+}
+
 $servername = "cssql.seattleu.edu";
 $username = "bd_jshenli";
 $password = "3300jshenli-Yrws";
@@ -12,13 +19,13 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Escape user inputs for security
-$username = mysqli_real_escape_string($conn, $_POST['name']);
+$user_name = mysqli_real_escape_string($conn, $_POST['name']);
 $email = mysqli_real_escape_string($conn, $_POST['email']);
-$password = mysqli_real_escape_string($conn, $_POST['password']);
+$pass = mysqli_real_escape_string($conn, $_POST['password']);
+
 
 // Check if username already exists in the database
-$sql = "SELECT * FROM User WHERE USERNAME='$username'";
+$sql = "SELECT * FROM User WHERE USERNAME='$user_name'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -26,7 +33,7 @@ if ($result->num_rows > 0) {
     echo "Username already exists";
 } else {
     // Username does not exist, insert new record
-    $sql = "INSERT INTO User (USERNAME, USER_EMAIL, USER_PASSWORD) VALUES ('$username', '$email', '$password')";
+    $sql = "INSERT INTO User (USERNAME, USER_EMAIL, USER_PASSWORD) VALUES ('$user_name', '$email', '$pass')";
     if ($conn->query($sql) === TRUE) {
         // Redirect to main.html
         $_SESSION['signup_success'] = true;

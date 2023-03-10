@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // User was found, log them in
             session_start();
             $_SESSION['username'] = $username;
-            header('Location: main.php');
+            header('Location: home.html');
             exit();
         } else {
             // User was not found, show an error message

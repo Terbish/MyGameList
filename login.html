@@ -8,7 +8,7 @@
   <body>
     <div class="main">
       <div class="container a-container" id="a-container">
-        <form class="form" id="a-form" method="post" action="signup.php">
+        <form class="form" id="a-form" method="POST" action="signup.php">
 			<h2 class="form_title title">Create Account</h2>
 			<div class="form__group">
 				<input type="text" class="form__input" name="name" id="name" placeholder="Name " required>
@@ -36,7 +36,7 @@
 				<input type="password" class="form__input" placeholder="Password" name="password" required>
 			</div>
 			<div class="form__group">
-				<button class="form__button button" type="submit" name="submit">Sign In</button>
+				<button class="form__button button" type="submit" name="submit" onclick="window.location.href='home.html'">Sign In</button>
 			</div>
 		</form>
 		
