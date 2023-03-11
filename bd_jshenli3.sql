@@ -1,4 +1,4 @@
--- Active: 1675025700040@@cssql.seattleu.edu@3306@bd_jshenli3
+-- Active: 1675113704748@@cssql.seattleu.edu@3306@bd_jshenli3
 
 
 DROP TABLE User, Studio, GamePlatform, Game, List, Review, Genre, Platform, UserList, ListGame, GameGenre;
@@ -370,3 +370,9 @@ SELECT Game.GAME_NAME, Studio.STUDIO_NAME, Studio.`STUDIO_ID`
 FROM Game
 LEFT OUTER JOIN Studio ON Game.STUDIO_ID = Studio.STUDIO_ID
 ORDER BY `STUDIO_ID`;
+
+
+SELECT r.RREVIEW_SCORE , r.REVIEW_DATE, r.REVIEW_TEXT, g.GAME_NAME
+                FROM `Review` r
+                INNER JOIN Game g ON r.GAME_ID = g.GAME_ID
+                WHERE r.USER_ID = 2;

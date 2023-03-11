@@ -1,3 +1,6 @@
+<?php
+    session_start();
+    ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,8 +13,8 @@
         <header>
             <div class="flex">
                 <div class="logo">
-                    <a href="home.html"><img src="images/logo.png" alt="Main Logo" /></a>
-                    <a href="home.html"><img src="images/logo2.png" alt="Alt Logo" /></a>
+                    <a href="home.php"><img src="images/logo.png" alt="Main Logo" /></a>
+                    <a href="home.php"><img src="images/logo2.png" alt="Alt Logo" /></a>
                 </div>
                 <nav>
                     <button id="nav-toggle" class="hamburger-menu">
@@ -20,12 +23,20 @@
                         <span class="strip"></span>
                     </button>
                     <ul id="nav-menu-container">
-                        <li><a href="home.html">Home</a></li>
+                        <li><a href="home.php">Home</a></li>
                         <li><a href="games.php">Games</a></li>
-                        <li><a href="user.php">User</a></li>
-                        <li><a href="main.html">Other</a></li>
+                        <li><a href="user.php">My Page</a></li>
+                        <li><a href="main.php">Other</a></li>
                     </ul>
                 </nav>
+                <p style="color: white;">Welcome: <?php echo $_SESSION['USER_EMAIL']; ?></p>
+                <?php if (isset($_SESSION['USER_EMAIL'])): ?>
+                <form action="logout.php" method="post">
+                    <input type="submit" value="Log out">
+                </form>
+                <?php else: ?>
+                    <p style="color: white;">You are not logged in.</p>
+                <?php endif; ?>
                 <a href="login.html" id="login-register-button">Login / Register</a>
             </div>
         </header>
@@ -44,7 +55,7 @@
                 <div class="flex">
                     <div class="box">
                         <span class="badge new">New</span>
-                        <a href="GameSite/GodofWar.php"><img src="https://cdn.akamai.steamstatic.com/steam/apps/1593500/header.jpg?t=1650554420" /></a>
+                        <a href="gamepg/GodofWar.php"><img src="https://cdn.akamai.steamstatic.com/steam/apps/1593500/header.jpg?t=1650554420" /></a>
                         <div class="box-lower-section">
                             <h4>God of War</h4>
                             <p>His vengeance against the Gods of Olympus years behind him, Kratos now lives as a man in the realm of Norse Gods and monsters.</p>
@@ -53,7 +64,7 @@
 
                     <div class="box">
                         <span class="badge fps">FPS</span>
-                        <a href="GameSite/BioShock.html"><img src="https://cdn.akamai.steamstatic.com/steam/apps/7670/header.jpg?t=1568739889" /></a>
+                        <a href="gamepg/BioShock.php"><img src="https://cdn.akamai.steamstatic.com/steam/apps/7670/header.jpg?t=1568739889" /></a>
                         <div class="box-lower-section">
                             <h4>Bioshock</h4>
                             <p>BioShock is a shooter unlike any you've ever played, loaded with weapons and tactics never seen.</p>
@@ -62,7 +73,7 @@
 
                     <div class="box">
                         <span class="badge adventure">Adventure</span>
-                        <a href="GameSite/GTA5.html"><img src="https://cdn.akamai.steamstatic.com/steam/apps/271590/header.jpg?t=1678296348" /></a>
+                        <a href="gamepg/GTA5.php"><img src="https://cdn.akamai.steamstatic.com/steam/apps/271590/header.jpg?t=1678296348" /></a>
                         <div class="box-lower-section">
                             <h4>GTA V</h4>
                             <p>Grand Theft Auto V for PC offers players the option to explore the award-winning world of Los Santos and Blaine County</p>
@@ -77,7 +88,7 @@
                     <div class="box">
                         <span class="rating-badge gold">5</span>
                         <div class="recent-reviews-image">
-                            <a href="GameSite/RedDead.html"><img src="https://image.api.playstation.com/cdn/UP1004/CUSA03041_00/Hpl5MtwQgOVF9vJqlfui6SDB5Jl4oBSq.png" /></a>
+                            <a href="gamepg/RedDead.php"><img src="https://image.api.playstation.com/cdn/UP1004/CUSA03041_00/Hpl5MtwQgOVF9vJqlfui6SDB5Jl4oBSq.png" /></a>
                         </div>
                         <div>
                             <h4>Red Redemption 2</h4>
@@ -88,7 +99,7 @@
                     <div class="box">
                         <span class="rating-badge purple">10</span>
                         <div class="recent-reviews-image">
-                            <a href="GameSite/witcher3.html"><img src="https://image.api.playstation.com/vulcan/ap/rnd/202211/0714/S1jCzktWD7XJSRkz4kNYNVM0.png" /></a>
+                            <a href="gamepg/witcher3.php"><img src="https://image.api.playstation.com/vulcan/ap/rnd/202211/0714/S1jCzktWD7XJSRkz4kNYNVM0.png" /></a>
                         </div>
                         <div>
                             <h4>The Witcher 3: Wild Hunt</h4>
@@ -99,7 +110,7 @@
                     <div class="box">
                         <span class="rating-badge green">8</span>
                         <div class="recent-reviews-image">
-                            <a href="GameSite/GTA5.html"><img src="https://image.api.playstation.com/cdn/UP1004/CUSA00419_00/bTNSe7ok8eFVGeQByA5qSzBQoKAAY32R.png" /></a>
+                            <a href="gamepg/GTA5.php"><img src="https://image.api.playstation.com/cdn/UP1004/CUSA00419_00/bTNSe7ok8eFVGeQByA5qSzBQoKAAY32R.png" /></a>
                         </div>
                         <div>
                             <h4>GTA v</h4>

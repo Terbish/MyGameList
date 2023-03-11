@@ -1,66 +1,106 @@
 <!DOCTYPE html>
-<html lang="es" dir="ltr">
-  <head>
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="css/l_style.css"><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <div class="main">
-      <div class="container a-container" id="a-container">
-        <form class="form" id="a-form" method="POST" action="signup.php">
-			<h2 class="form_title title">Create Account</h2>
-			<div class="form__group">
-				<input type="text" class="form__input" name="name" id="name" placeholder="Name " required>
-				<label for="name" class="form__label"></label>
-			</div>
-			<div class="form__group">
-				<input type="email" class="form__input" name="email" id="email" placeholder="Email " required>
-				<label for="email" class="form__label"></label>
-			</div>
-			<div class="form__group">
-				<input type="password" class="form__input" name="password" id="password" placeholder="Password " required>
-				<label for="password" class="form__label"></label>
-			</div>
-			<button type="submit" name="signup-submit" class="form__button button">Sign Up</button>
-		</form>
-		
-      </div>
-      <div class="container b-container" id="b-container">
-        <form class="form" id="b-form" method="POST" action="check_login.php">
-			<h2 class="form_title title">Sign in to Website</h2>
-			<div class="form__group">
-				<input type="email" class="form__input" placeholder="Email" name="email" required>
-			</div>
-			<div class="form__group">
-				<input type="password" class="form__input" placeholder="Password" name="password" required>
-			</div>
-			<div class="form__group">
-        <button class="form__button button" type="submit" name="submit" id="signInButton">Sign In</button>
-			</div>
-		</form>
-		
-      </div>
-      <div class="switch" id="switch-cnt">
-        <div class="switch__circle"></div>
-        <div class="switch__circle switch__circle--t"></div>
-        <div class="switch__container" id="switch-c1">
-          <h2 class="switch__title title">Welcome Back !</h2>
-          <p class="switch__description description">To keep connected with us please login with your personal info</p>
-          <button class="switch__button button switch-btn">SIGN IN</button>
-        </div>
-        <div class="switch__container is-hidden" id="switch-c2">
-          <h2 class="switch__title title">Hello Friend !</h2>
-          <p class="switch__description description">Enter your personal details and start journey with us</p>
-          <button class="switch__button button switch-btn">SIGN UP</button>
-        </div>
-      </div>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+</head>
+<body>
+    <div>
+        <h1>
+            Log in / Sign up
+        </h1>
+        <button id="login-btn">Log in</button>
+        <button id="signup-btn">Sign up</button>
     </div>
-    <script src="js/script.js"></script>
+    <div>
+        <form action="login_check.php" method="post" id="login-form">
+        
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" required>
+
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password">
+            </div>
+            <div>
+                <input type="checkbox" id="remember" name="remember">
+                <label for="remember">Remember me</label>
+            </div>
+            <div>
+                <input type="submit" name="login_submit" value="Log in">
+            </div>
+        </form>
+    </div>
+
+    <div>
+        <form action="process_signup.php" method="post" id="signup-form">
+            <div>
+                <label for="name">User Name:</label>
+                <input type="name" name="username" id="name" required>
+            </div>
+            <div>
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div>
+              <label for="password">Password:</label>
+              <input type="password" id="password" name="password" required>
+            </div>
+            <div>
+              <input type="checkbox" id="remember" name="remember">
+              <label for="remember">Remember me</label>
+            </div>
+            <div>
+              <input type="hidden" id="name" name="name">
+            </div>
+            <div>
+              <input type="hidden" id="new_email" name="new_email">
+            </div>
+            <div>
+              <input type="hidden" id="new_password" name="new_password">
+            </div>
+            <div>
+              <input type="checkbox" id="terms" name="terms" required>
+              <label for="terms">I agree to the terms and conditions</label>
+            </div>
+            <div>
+              <input type="submit" name="signup_submit" value="Sign up">
+            </div>
+          </form>
+    </div>
+
+
     <script>
-      document.getElementById("signInButton").addEventListener("click", function(){
-          window.location.href = "home.html";
-      });
-      </script>
-  </body>
+        const loginForm = document.getElementById("login-form");
+        const signupForm = document.getElementById("signup-form");
+        const loginBtn = document.getElementById("login-btn");
+        const signupBtn = document.getElementById("signup-btn");
+        
+        function showLoginForm() {
+            loginForm.style.display = "block";
+            signupForm.style.display = "none";
+            loginBtn.classList.add("active");
+            signupBtn.classList.remove("active");
+        }
+        
+        function showSignupForm() {
+            loginForm.style.display = "none";
+            signupForm.style.display = "block";
+            loginBtn.classList.remove("active");
+            signupBtn.classList.add("active");
+        }
+        
+        // show the login form by default
+        showLoginForm();
+        
+        // add click listeners to the buttons
+        loginBtn.addEventListener("click", showLoginForm);
+        signupBtn.addEventListener("click", showSignupForm);
+    </script>
+    
+</body>
 </html>

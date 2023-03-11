@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,6 +30,9 @@
         </select>
         <button class="sort-button" type="submit">Sort</button>
     </form>
+    <?php
+        echo "<br><button onclick=\"location.href='home.php'\">Back to Home Page</button>";
+        ?>
 
 	<?php
 	// PHP code to execute the SQL query based on the selected sort option

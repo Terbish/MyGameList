@@ -170,10 +170,10 @@ embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }</style></h
   <span class="strip"></span>
 </button>
 <ul id="nav-menu-container">
-  <li><a href="home.html">Home</a></li>
+  <li><a href="home.php">Home</a></li>
   <li><a href="games.php">Games</a></li>
   <li><a href="user.php">User</a></li>
-  <li><a href="main.html">Other</a></li>
+  <li><a href="main.php">Other</a></li>
 </ul>
 </nav>
 
