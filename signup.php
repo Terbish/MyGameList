@@ -37,7 +37,7 @@ if ($result->num_rows > 0) {
     if ($conn->query($sql) === TRUE) {
         // Redirect to main.html
         $_SESSION['signup_success'] = true;
-        header('Location: login.html#b-container');
+        header('Location: home.html');
         exit;
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;

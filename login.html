@@ -36,7 +36,7 @@
 				<input type="password" class="form__input" placeholder="Password" name="password" required>
 			</div>
 			<div class="form__group">
-				<button class="form__button button" type="submit" name="submit" onclick="window.location.href='home.html'">Sign In</button>
+        <button class="form__button button" type="submit" name="submit" id="signInButton">Sign In</button>
 			</div>
 		</form>
 		
@@ -57,5 +57,10 @@
       </div>
     </div>
     <script src="js/script.js"></script>
+    <script>
+      document.getElementById("signInButton").addEventListener("click", function(){
+          window.location.href = "home.html";
+      });
+      </script>
   </body>
 </html>
