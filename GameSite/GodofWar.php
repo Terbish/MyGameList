@@ -1,3 +1,6 @@
+<?php
+    session_start();
+    ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -21,10 +24,19 @@
                     </button>
                     <ul id="nav-menu-container">
                         <li><a href="../home.php">Home</a></li>
-                        <li><a href="#">Games</a></li>
-                        <li><a href="../main.html">Other</a></li>
+                        <li><a href="../games.php">Games</a></li>
+                        <li><a href="../user.php">My Page</a>
+                        <li><a href="../main.php">Other</a></li>
                     </ul>
                 </nav>
+                <p style="color: white;">Welcome: <?php echo $_SESSION['USER_EMAIL']; ?></p>
+                <?php if (isset($_SESSION['USER_EMAIL'])): ?>
+                <form action="../logout.php" method="post">
+                    <input type="submit" value="Log out">
+                </form>
+                <?php else: ?>
+                    <p style="color: white;">You are not logged in.</p>
+                <?php endif; ?>
                 <a href="../login.html" id="login-register-button">Login / Register</a>
             </div>
         </header>
