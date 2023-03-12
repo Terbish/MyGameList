@@ -1,0 +1,185 @@
+body {
+    font-family: 'helvetica', 'sans-serif';
+    margin: 0;
+}
+
+.logo img{
+    height: 60px;
+    width: auto;
+}
+
+/* start: global style rules */
+h1, h2, h3, h4, h5 {
+    line-height: 1.5;
+    font-weight: 300;
+    margin: 0.5em 0;
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+h3 {
+    font-size: 1.6em;
+}
+
+h4 {
+    font-size: 1.4em;
+}
+
+h5 {
+    font-size: 1.2em;
+}
+
+a {
+    text-decoration: none;
+}
+
+p, label, strong {
+    line-height: 2;
+    font-size: 0.85em;
+    font-weight: 300;
+}
+
+.flex {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    justify-content: space-between;
+}
+
+
+
+.shade {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+}
+/* end: global style rules */
+
+/* start: header styles */
+header {
+    background-color: #131313;
+    padding: 20px 0;
+    position: relative;
+    border-bottom: 1px solid #FFB320;
+}
+
+.hamburger-menu {
+    background-color: transparent;
+    border: 1px solid #FFB320;
+    padding: 3px 5px;
+    width: 30px;
+    cursor: pointer;
+    display: none;
+}
+
+.hamburger-menu .strip {
+    display: block;
+    height: 1px;
+    background-color: #FFB320;
+    margin: 4px 0;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0 0;
+}
+
+nav ul li {
+    display: inline-block;
+    font-size: 1em;
+    margin: 0 18px;
+}
+
+nav ul li a {
+    color: #eee;
+    font-weight: 600;
+}
+
+nav ul li a:hover {
+    color: #FFB320;
+}
+
+#login-register-button {
+    background-color: #FFB320;
+    color: #131313;
+    border-radius: 20px;
+    padding: 10px 15px;
+    font-size: 0.85em;
+    font-weight: 600;
+}
+/* end: header styles */
+
+/* start: main page styles */
+#main-page {
+    background: black;
+    height: 800px;
+}
+
+.first-page {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.first-page h1 {
+    color: #eee;
+    font-size: 3.5em;
+    font-weight: 300;
+    margin: 0.5em 0;
+    padding-top: 10%;
+    padding-left: 10%;
+    
+}
+
+.first-page span {
+    color: #FFB320;
+}
+
+.first-page h3 {
+    color: #eee;
+    font-size: 0.85em;
+    font-weight: 300;
+    max-width: 1000px;
+    line-height: 2;
+    margin-bottom: 2.5em;
+    padding-left: 10%;
+}
+
+.first-page iframe{
+    padding-top: 10%;
+    width: 600px;
+    height: 500px;
+    border: none;
+}
+
+/* end: main page styles */
+
+
+@media (max-width: 400px) {
+    .logo img {
+        width: 150px;
+        margin-top: 2px;
+    }
+
+    #login-register-button {
+        padding: 10px;
+        font-size: 0.65em;
+    }
+}
+/* end: media queries */
+
+/* start: review styles */
+
+/* end: review style */
