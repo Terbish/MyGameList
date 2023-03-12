@@ -69,13 +69,18 @@
             die("Connection failed: " . mysqli_connect_error());
             }
 
+
+
             $sql = "SELECT Review.*, User.USER_ID FROM Review JOIN Game ON Review.GAME_ID = Game.GAME_ID JOIN User ON Review.USER_ID = User.USER_ID WHERE Game.GAME_NAME = 'God of War';";
             $result = $conn->query($sql);
+            $dat = mysqli_fetch_assoc($result);
+            $gowid = $dat['GAME_ID'];
+            $_SESSION['gameid'] = $gowid;
 
             if ($result->num_rows > 0) {
                 // output game reviews as a table with styling
                 echo "<table style='border-collapse: collapse; border: none; width: 100%;'>";
-                echo "<tr style='background-color: #black; border-radius: 10px;'><th style='padding: 10px; text-align: left;'>User ID</th><th style='padding: 10px; text-align: left;'>Rating</th><th style='padding: 10px; text-align: left;'>Comment</th></tr>";
+                echo "<tr style='background-color: #e2ad4b; border-radius: 10px;'><th style='padding: 10px; text-align: left;'>User ID</th><th style='padding: 10px; text-align: left;'>Rating</th><th style='padding: 10px; text-align: left;'>Comment</th></tr>";
                 while($row = $result->fetch_assoc()) {
                   echo "<tr style='background-color: #f9f9f9; border-radius: 10px;'><td style='padding: 10px;'>" . $row["USER_ID"] . "</td><td style='padding: 10px;'>" . $row["REVIEW_SCORE"] . "</td><td style='padding: 10px;'>" . $row["REVIEW_TEXT"] . "</td></tr>";
                 }
@@ -87,6 +92,17 @@
               
 
               ?>
+        </div>
+        <div>
+            <form method="POST" action="save_review.php" style="margin-left: 10px; padding-bottom: 20px;">
+                <label for="review">Enter your review:</label><br>
+                <textarea id="review" name="review" rows="4" cols="50"></textarea><br>
+                <label for="score">Enter the review score:</label><br>
+                <input type="number" id="score" name="score" min="0" max="10" size="2"><br>
+                <input type="submit" value="Submit">
+                <span id="submit-msg"></span>
+            </form>
+
         </div>
         <script>
             document.getElementById('nav-toggle').addEventListener('click', function () {
