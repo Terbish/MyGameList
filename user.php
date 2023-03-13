@@ -29,6 +29,7 @@
 
         tr:nth-child(even) {
             background-color: #f2f2f2;
+            color: #252525;
         }
 
         tr:hover {
@@ -36,7 +37,7 @@
         }
         </style>
 </head>
-<body>
+<body style="background-color: #252525;color:whitesmoke; padding-left: 10%;">
     <div>
         <p>Welcome: <?php echo $_SESSION['USER_EMAIL'] ?> </p>
 
@@ -84,7 +85,7 @@
         ?>
     </div>
     <?php
-    echo "<br><button onclick=\"location.href='home.php'\">Back to Home Page</button>";
+    echo "<br><button onclick=\"location.href='index.php'\">Back to Home Page</button>";
         ?>
 </body>
 </html>

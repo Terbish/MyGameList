@@ -31,7 +31,7 @@
         <button class="sort-button" type="submit">Sort</button>
     </form>
     <?php
-        echo "<br><button onclick=\"location.href='home.php'\">Back to Home Page</button>";
+        echo "<br><button onclick=\"location.href='index.php'\">Back to Home Page</button>";
         ?>
 
 	<?php

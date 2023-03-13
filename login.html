@@ -8,15 +8,17 @@
     <title>Welcome</title>
 
 </head>
-<body>
-    <div id="login-containter">
+<body style="background-color: #252525;">
+    <div style="color: whitesmoke; padding-left: 10px;">
         <h1>
             Log in / Sign up
         </h1>
+    </div>
+    <div style="display: flex; flex-direction: row; color: whitesmoke; align-items: center; justify-content: center;">
         <button id="login-btn">Log in</button>
         <button id="signup-btn">Sign up</button>
     </div>
-    <div>
+    <div id="login-containter" style="display: flex; flex-direction: column; color: whitesmoke; align-items: center; justify-content: center; padding-top: 20px;">
         <form action="login_check.php" method="post" id="login-form">
         
             <div>
@@ -38,7 +40,7 @@
         </form>
     </div>
 
-    <div>
+    <div style="display: flex; flex-direction: column; color: whitesmoke; align-items: center; justify-content: center;">
         <form action="process_signup.php" method="post" id="signup-form">
             <div>
                 <label for="name">User Name:</label>

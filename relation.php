@@ -44,7 +44,7 @@ switch ($query) {
         $query = "SELECT * FROM GamePlatform";
         break;
     case 'userlist':
-        $query = "SELECT * FROM Userlist";
+        $query = "SELECT * FROM `UserList`";
         break;
     case 'listgame':
         $query = "SELECT * FROM ListGame";
@@ -74,58 +74,10 @@ if ($result && mysqli_num_rows($result) > 0) {
     do {
         echo "<tr>";
         foreach ($row as $key => $value) {
-            if ($key == 'GAME_NAME'){
-                if ($value == 'Grand Theft Auto V'){
-                    $websiteURL = 'https://www.yahoo.com';
-                } elseif($value == 'The Witcher 3: Wild Hunt'){
-                    $websiteURL = 'https://www.youtube.com';
-                } elseif($value == 'Red Dead Redemption 2'){
-                    $websiteURL = 'https://www.youtube.com';
-                } elseif($value == 'Horizon Zero Dawn'){
-                    $websiteURL = 'https://www.youtube.com';
-                } elseif($value == 'Final Fantasy VII Remake'){
-                    $websiteURL = 'https://www.youtube.com';
-                } elseif($value == 'Bloodborne'){
-                    $websiteURL = 'https://www.youtube.com';
-                } elseif($value == 'God of War'){
-                    $websiteURL = 'https://www.youtube.com';
-                } elseif($value == 'The Last of Us Part II'){
-                    $websiteURL = 'https://www.youtube.com';
-                } elseif($value == 'Death Stranding'){
-                    $websiteURL = 'https://www.youtube.com';
-                } elseif($value == 'Uncharted 4: A Thiefs End'){ // problem with apostrophy
-                    $websiteURL = 'https://www.youtube.com';
-                } elseif($value == 'Assasins Creed Valhalla'){ // problem with apostrophy
-                    $websiteURL = 'https://www.youtube.com';
-                } elseif($value == 'Call of Duty: Modern Warfare'){
-                    $websiteURL = 'https://www.youtube.com';
-                } elseif($value == 'The Legend of Zelda: Breath of the Wild'){
-                    $websiteURL = 'https://www.youtube.com';
-                } elseif($value == 'Super Mario Odyssey'){
-                    $websiteURL = 'https://www.youtube.com';
-                } elseif($value == 'Animal Crossing: New Horizons'){
-                    $websiteURL = 'https://www.youtube.com';
-                } elseif($value == 'Pokemon Sword'){
-                    $websiteURL = 'https://www.youtube.com';
-                } elseif($value == 'Portal 2'){
-                    $websiteURL = 'https://www.youtube.com';
-                } elseif($value == 'Half-Life 2'){
-                    $websiteURL = 'https://www.youtube.com';
-                } elseif($value == 'BioShock'){
-                    $websiteURL = 'https://www.youtube.com';
-                } elseif($value == 'Fallout: New Vegas'){
-                    $websiteURL = 'https://www.youtube.com';
-                } 
-                
-                echo "<td style='border: 1px solid black; padding: 5px; text-align: center;'><a href='$websiteURL'>$value</a></td>";
-            } else{
                 echo "<td style='border: 1px solid black; padding: 5px; text-align: center;'>$value</td>";
             }
-        }
         echo "</tr>";
     } while ($row = mysqli_fetch_assoc($result));
-
- 
 } else {
     echo "<tr><td>No results found.</td></tr>";
 }

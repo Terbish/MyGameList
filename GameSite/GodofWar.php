@@ -13,8 +13,8 @@
         <header>
             <div class="flex">
                 <div class="logo">
-                    <a href="../home.php"><img src="../images/logo.png" alt="Main Logo" /></a>
-                    <a href="../home.php"><img src="../images/logo2.png" alt="Alt Logo" /></a>
+                    <a href="../index.php"><img src="../images/logo.png" alt="Main Logo" /></a>
+                    <a href="../index.php"><img src="../images/logo2.png" alt="Alt Logo" /></a>
                 </div>
                 <nav>
                     <button id="nav-toggle" class="hamburger-menu">
@@ -23,7 +23,7 @@
                         <span class="strip"></span>
                     </button>
                     <ul id="nav-menu-container">
-                        <li><a href="../home.php">Home</a></li>
+                        <li><a href="../index.php">Home</a></li>
                         <li><a href="../games.php">Games</a></li>
                         <li><a href="../user.php">My Page</a>
                         <li><a href="../main.php">Other</a></li>

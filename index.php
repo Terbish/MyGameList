@@ -13,8 +13,8 @@
         <header>
             <div class="flex">
                 <div class="logo">
-                    <a href="home.php"><img src="images/logo.png" alt="Main Logo" /></a>
-                    <a href="home.php"><img src="images/logo2.png" alt="Alt Logo" /></a>
+                    <a href="index.php"><img src="images/logo.png" alt="Main Logo" /></a>
+                    <a href="index.php"><img src="images/logo2.png" alt="Alt Logo" /></a>
                 </div>
                 <nav>
                     <button id="nav-toggle" class="hamburger-menu">
@@ -23,7 +23,7 @@
                         <span class="strip"></span>
                     </button>
                     <ul id="nav-menu-container">
-                        <li><a href="home.php">Home</a></li>
+                        <li><a href="index.php">Home</a></li>
                         <li><a href="games.php">Games</a></li>
                         <li><a href="user.php">My Page</a></li>
                         <li><a href="main.php">Other</a></li>
@@ -153,7 +153,7 @@
                         <div class="comments-item">
                             <img src="jerryv2.jpeg" />
                             <div>
-                                <p><span class="author">Jerry Shen Li</span></p>
+                                <p><span class="author">Jerry Shen</span></p>
                                 <p>Get me out of here</p>
                                 <h5>Insert ID</h5>
                             </div>

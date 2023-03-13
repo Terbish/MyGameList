@@ -27,7 +27,7 @@ if(isset($_POST['login_submit'])) {
         $_SESSION['USER_EMAIL'] = $email;
 
         // Redirect to the main page
-        header("Location: home.php");
+        header("Location: index.php");
         exit();
     } else {
         // Incorrect email or password
