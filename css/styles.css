@@ -690,4 +690,14 @@ footer ul li a {
     background-color: #007bff;
     color: #fff;
   }
-  
+/* end: games.php style */
+
+#login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #252525;
+    color: #ccc;
+}
